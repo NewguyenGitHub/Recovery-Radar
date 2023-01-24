@@ -30,14 +30,13 @@ We plan to supplement this with another API from a group like Yelp where we can 
 
 * The code for this project is accessable through the git hub repository listed below in the REFERENCES section of this README.md.
 * Navigate to the repositry by directing into the Custom-Timed-Quiz repository located under the user "https://github.com/NewguyenGitHub"
-* Once inside the Custom-Timed-Quiz repository click the green "<> Code" button and copy the HTTPS link.
+* Once inside the Recovery-Radar repository click the green "<> Code" button and copy the HTTPS link.
 * Once the link is copied you may then clone the repository to your computer through the terminal and you now have access to all JavaScript, Html, CSS, Read.md, and licensing files.
 * Once inside the main directory Navigate into "feature/readmeupdates" branch. Any changes made to this code should always be made within this branch allowing for review before any changes become permanant.
 
 ## References
+
 * Deployed url site
-* Github user "https://github.com/NewguyenGitHub"
-* (git hub repository with code for application to clone) https://github.com/NewguyenGitHub/Recovery-Radar.git
 
 ## License
 
