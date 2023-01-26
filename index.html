@@ -9,24 +9,19 @@
   </head>
 
 
-  <body class>
-    <div class = "font-seriff text-orange-200">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <div class = "text-gray-100">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i></i></button>
-        </form>
-      </div>
-    </div>
-    
+  <body>
     <div>
-      <h2 class = "text-green-700">Search Bar</h2>
-      <p>search bar with submit.</p>
-      <p>Resize window</p>
+      <h1 class="font-seriff font-bold text-blue-300">Recovery Radar</h1>
     </div>
+    <div id="map" class="w-3/6 h-40"></div>
+    <div id="places"></div>
+    <div id="more"></div>
+    
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_i3KKcb_DYxqC3qOrZuIh2DLOKO4Pkc&libraries=places&callback=initMap"></script>
+
+
+
 	<script src="./assets/js/index.js"></script>
+
   </body>
 </html>
