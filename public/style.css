@@ -513,6 +513,42 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 .text-orange-200 {
   --tw-text-opacity: 1;
   color: rgb(254 215 170 / var(--tw-text-opacity));
