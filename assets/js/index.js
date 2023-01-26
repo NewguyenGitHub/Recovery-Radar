@@ -4,32 +4,30 @@ var service;
 var infowindow;
 
 function initMap() {
-  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
-
-  map = new google.maps.Map(document.getElementById('map'), {
-      center: pyrmont,
-      zoom: 15
-    });
-
-  var request = {
-    location: pyrmont,
-    radius: '500',
-    query: 'restaurant'
-  };
-
-  service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, callback);
+  getNearbyDoctorsInCity("provo","resturant",'map');
 }
 
-function callback(results, status) { 
-console.log("test",results);
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      //createMarker(results[i]);
-      console.log(results[i]);
-    }
-  }
-}
+function getNearbyDoctorsInCity(city, occupation, element){
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=b02be164d047cfbed86694527d1d3a92").then((cities)=>cities.json()).then(function(cities){   
+    
+    console.log(cities)
 
-//function createMarker(){}
+    var location = new google.maps.LatLng(cities[0].lat,cities[0].lon); // create google maps location based on longitude and lat
+
+    
+    // create map and service object if none exists yet
+    if (!map){ map = new google.maps.Map(document.getElementById(element), {center: location ,zoom: 15}); }
+    if (!service) { service = new google.maps.places.PlacesService(map); } 
+
+    // make request to service with map if none exists yet 
+    var request = { location: location, radius: '500', query: occupation};
+    service.textSearch(request, function(results,status){
+      
+      console.log(results);
+      
+      for(i=0;i<results.length;i++){
+        new google.maps.Marker({ position: results[i].geometry.location, map: map, label: results[i].icon});
+      }
+
+})})}
+
