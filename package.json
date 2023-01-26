@@ -4,6 +4,7 @@
   "description": "Tailwind for RR",
   "main": "tailwind.config.js",
   "scripts": {
+
     "build-css":"tailwindcss -i ./assets/css/style.css -o ./public/style.css --watch",
     "watch":"watch \"npm run build-css\""
 
