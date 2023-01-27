@@ -24,7 +24,7 @@ function getNearbyDoctorsInCity(city,occupation,element){
         if (info == null) { info = {history:[]}; } // if no info exists create base structure for json
         info.history.splice(0,0,{City:cities[0].name,Occupation:occupation}); // insert new city and occupation
         if (info.history.length>5){info.history.length=5;} // limit array to have 5 entries max
-        localStorage.setItem("recoveryradarinfo",JSON.stringify(info)); 
+        localStorage.setItem("recoveryradarinfo",JSON.stringify(info));
         
         for(i=0;i<results.length;i++){ // add markers 
           new google.maps.Marker({ position: results[i].geometry.location, map: map,}); //label: results[i].icon
