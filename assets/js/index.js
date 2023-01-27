@@ -4,6 +4,7 @@ var service;
 var infowindow;
 
 function initMap() {
+
   getNearbyDoctorsInCity("provo","resturant",'map');
 }
 
