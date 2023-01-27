@@ -1,6 +1,8 @@
 
 var map;
 var service;
+var cityElement = document.getElementById("location")
+var occupationElement = document.getElementById("occupation")
 
 function initMap(){
   var info = JSON.parse(localStorage.getItem("recoveryradarinfo")) //load last city and occupation user searched for, or search default city
@@ -22,10 +24,15 @@ function getNearbyDoctorsInCity(city,occupation,element){
         if (info == null) { info = {history:[]}; } // if no info exists create base structure for json
         info.history.splice(0,0,{City:cities[0].name,Occupation:occupation}); // insert new city and occupation
         if (info.history.length>5){info.history.length=5;} // limit array to have 5 entries max
-        localStorage.setItem("recoveryradarinfo",JSON.stringify(info)); 
+        localStorage.setItem("recoveryradarinfo",JSON.stringify(info));
         
         for(i=0;i<results.length;i++){ // add markers 
           new google.maps.Marker({ position: results[i].geometry.location, map: map,}); //label: results[i].icon
         }
 })})} 
 
+addEventListener('submit', (event) => {
+  event.preventDefault();
+  getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map');
+  console.log(cityElement.value,occupationElement.value);
+} )
