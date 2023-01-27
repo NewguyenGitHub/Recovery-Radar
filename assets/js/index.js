@@ -1,6 +1,8 @@
 
 var map;
 var service;
+var cityElement = document.getElementById("location")
+var occupationElement = document.getElementById("occupation")
 
 function initMap(){
   var info = JSON.parse(localStorage.getItem("recoveryradarinfo")) //load last city and occupation user searched for, or search default city
@@ -29,3 +31,8 @@ function getNearbyDoctorsInCity(city,occupation,element){
         }
 })})} 
 
+addEventListener('submit', (event) => {
+  event.preventDefault();
+  getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map');
+  console.log(cityElement.value,occupationElement.value);
+} )
