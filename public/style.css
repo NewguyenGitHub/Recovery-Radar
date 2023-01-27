@@ -517,10 +517,6 @@ video {
   height: 10rem;
 }
 
-.h-64 {
-  height: 16rem;
-}
-
 .w-3\/6 {
   width: 50%;
 }
@@ -532,4 +528,9 @@ video {
 .text-blue-300 {
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity));
+}
+
+.text-orange-300 {
+  --tw-text-opacity: 1;
+  color: rgb(253 186 116 / var(--tw-text-opacity));
 }
