@@ -50,6 +50,8 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
         } 
 
 
+      })})}
+
 addEventListener('submit', (event) => {
   event.preventDefault();
   getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstyle);
