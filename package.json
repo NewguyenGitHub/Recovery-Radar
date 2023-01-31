@@ -4,10 +4,8 @@
   "description": "Tailwind for RR",
   "main": "tailwind.config.js",
   "scripts": {
-
-    "build-css":"tailwindcss -i ./assets/css/style.css -o ./public/style.css --watch",
-    "watch":"watch \"npm run build-css\""
-
+    "build-css": "tailwindcss -i ./assets/css/style.css -o ./public/style.css --watch",
+    "watch": "watch \"npm run build-css\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +18,7 @@
   },
   "homepage": "https://github.com/NewguyenGitHub/Recovery-Radar#readme",
   "dependencies": {
+    "flowbite": "^1.6.3",
     "tailwindcss": "^3.2.4"
   }
 }
