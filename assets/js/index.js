@@ -26,6 +26,7 @@ function getNearbyDoctorsInCity(city,occupation,element){
         if (info.history.length>5){info.history.length=5;} // limit array to have 5 entries max
         localStorage.setItem("recoveryradarinfo",JSON.stringify(info));
         
+
         //create markers and info window
         console.log(results);
         for(i=0;i<results.length;i++){ 
@@ -39,7 +40,7 @@ function getNearbyDoctorsInCity(city,occupation,element){
           marker.addListener("click",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is pressed 
 
         } 
-})})} 
+
 
 addEventListener('submit', (event) => {
   event.preventDefault();
