@@ -29,7 +29,7 @@ function getNearbyDoctorsInCity(city,occupation,element){
         for(i=0;i<results.length;i++){ // add markers 
           new google.maps.Marker({ position: results[i].geometry.location, map: map,}); //label: results[i].icon
         }
-})})} 
+})})}  
 
 addEventListener('submit', (event) => {
   event.preventDefault();
