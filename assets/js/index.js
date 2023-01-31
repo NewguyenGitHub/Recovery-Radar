@@ -47,15 +47,15 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
           marker['infowindow'] = new google.maps.InfoWindow({content:content}); //give marker infowindow key value
           marker.addListener("click",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is pressed 
 
-        } 
+        }
+})})} 
 
 
-      })})}
+  
 
 addEventListener('submit', (event) => {
   event.preventDefault();
-  getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstyle);
-  console.log(cityElement.value,occupationElement.value);
+  getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstylers);
 })
 
 
