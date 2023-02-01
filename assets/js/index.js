@@ -288,3 +288,17 @@ var mapstylers = [
     ]
   }
 ]
+
+function myFunction() {
+  var x, text;
+  //Getting the value of the input field with id="edu"
+  x = document.getElementById("con").value;
+  // If x is less than 0, input is invalid
+  //otherwise input is valid
+  if (isNaN(x) || x < 0) {
+  text = "Input invalid";
+  } else {
+  text = "A valid Input";
+  }
+  document.getElementById("conForm").innerHTML = text;
+  }
