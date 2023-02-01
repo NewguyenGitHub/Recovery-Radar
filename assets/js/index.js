@@ -3,6 +3,8 @@ var map;
 var service;
 var cityElement = document.getElementById("location")
 var occupationElement = document.getElementById("occupation")
+// var submitMap = document.getElementById("submit-map")
+// var submitContact = document.getElementById("submit-contact")
 
 function initMap(){
   var info = JSON.parse(localStorage.getItem("recoveryradarinfo")) //load last city and occupation user searched for, or search default city
@@ -53,10 +55,16 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
 
   
 
+//document.getElementById("submit-map").
 addEventListener('submit', (event) => {
   event.preventDefault();
   getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstylers);
 })
+
+// document.getElementById("submit-contact").addEventListener('submit', (event) => {
+//     event.preventDefault();
+  
+//  })
 
 
 var mapstylers = [
