@@ -17,8 +17,7 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
       var location = new google.maps.LatLng(cities[0].lat,cities[0].lon); // create google maps location based on what openweather api returned for city longitude and lat
       if (!map){map = new google.maps.Map(document.getElementById(element),{center:location,zoom:15,gestureHandling: "greedy"});}// create map and service object if none exists yet
       map.setOptions({styles: mapstylers});//set map style
-      if (!service){service = new google.maps.places.PlacesService(map);} 
-      map.panTo(location); 
+      if (!service){service = new google.maps.places.PlacesService(map);}  
       for(i=0;i<markers.length;i++){ markers[i].setMap(null);} //clear markers
 
       service.textSearch({location:location,radius:'1000',query:occupation},function(results,status){
@@ -34,27 +33,36 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
 
         //create markers and info window
         for(i=0;i<results.length;i++){ 
-          markers[i] = new google.maps.Marker({ position: results[i].geometry.location, map: map}); //label: results[i].icon
 
-          //borderColor: '#386994',
+          var markerscale=(1-(i*.03));
+          var customicon = {
+            url: "https://www.seekpng.com/png/full/236-2363915_white-google-map-marker.png", // url
+            scaledSize: new google.maps.Size(50*markerscale, 40*markerscale), // scaled size
+          };
+
+          markers[i] = new google.maps.Marker({ position: results[i].geometry.location, map: map, icon:customicon}); //label: results[i].icon //borderColor: '#386994',
           var address = results[i].formatted_address.split(',')[0];
-
           var content=  "<h1> " + results[i].name + "</h1> <br>" + 
                         "Address: " + address + "<br>" +
                         "Rating: " + results[i].rating + "<br>"
-
-                        //"Price: " + results[i].price_level + "<br>" 
-                        //"More Info: "
-
           markers[i]['infowindow'] = new google.maps.InfoWindow({content:content}); //give marker infowindow key value
           markers[i]['moreinfolink'] = "https://www.google.com/maps/place/?q=place_id:" + results[i].place_id ;
           markers[i].addListener("click",function(){ 
             window.open(this.moreinfolink,"_blank"); 
           }); // make infowindow open wheqn marker is pressed 
           markers[i].addListener("mouseover",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is hovered
-          markers[i].addListener("mouseout",function(){ this.infowindow.close();}); // make infowindow open when marker is pressed 
-
+          markers[i].addListener("mouseout",function(){ this.infowindow.close();}); // make infowindow close when pressed
         }
+
+        //set zoom and location based on markers 
+        map.panTo(location);
+        //var bounds = new google.maps.LatLngBounds();
+        //for(var i=0;i<markers.length;i++){
+          //bounds.extend(markers[i]);
+        //}
+        //map.fitBounds(bounds);
+        //console.log(bounds);
+
 })})} 
 
 addEventListener('submit', (event) => {
