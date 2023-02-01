@@ -47,14 +47,9 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
                         //"More Info: "
 
           markers[i]['infowindow'] = new google.maps.InfoWindow({content:content}); //give marker infowindow key value
-          markers[i]['moreinfolink'] = '"https://www.google.com/maps/place/?q=place_id:'+ results[i].place_id + '"';
+          markers[i]['moreinfolink'] = "https://www.google.com/maps/place/?q=place_id:" + results[i].place_id ;
           markers[i].addListener("click",function(){ 
-            console.log(this.moreinfolink);
-            console.log(this);
-            //var link = this.moreinfolink;
             window.open(this.moreinfolink,"_blank"); 
-            //window.open("https://www.google.com/maps/place/?q=place_id:ChIJWwJ_siBawokRyBJ85UV6gQs","_blank"); 
-
           }); // make infowindow open wheqn marker is pressed 
           markers[i].addListener("mouseover",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is hovered
           markers[i].addListener("mouseout",function(){ this.infowindow.close();}); // make infowindow open when marker is pressed 
