@@ -1,6 +1,7 @@
 
 var map;
 var service;
+var markers = [];
 var cityElement = document.getElementById("location")
 var occupationElement = document.getElementById("occupation")
 
@@ -14,13 +15,13 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
   fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=b02be164d047cfbed86694527d1d3a92").then((cities)=>cities.json()).then(function(cities){   
     
       var location = new google.maps.LatLng(cities[0].lat,cities[0].lon); // create google maps location based on what openweather api returned for city longitude and lat
-      if (!map){map = new google.maps.Map(document.getElementById(element),{center:location,zoom:15});}// create map and service object if none exists yet
-      console.log(mapstylers);
+      if (!map){map = new google.maps.Map(document.getElementById(element),{center:location,zoom:15,gestureHandling: "greedy"});}// create map and service object if none exists yet
       map.setOptions({styles: mapstylers});//set map style
       if (!service){service = new google.maps.places.PlacesService(map);} 
       map.panTo(location); 
+      for(i=0;i<markers.length;i++){ markers[i].setMap(null);} //clear markers
 
-      service.textSearch({location:location,radius:'500',query:occupation},function(results,status){
+      service.textSearch({location:location,radius:'1000',query:occupation},function(results,status){
         
         // local storage
         var info = JSON.parse(localStorage.getItem("recoveryradarinfo")); // get info for recovery radar as an object
@@ -29,35 +30,42 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
         if (info.history.length>5){info.history.length=5;} // limit array to have 5 entries max
         localStorage.setItem("recoveryradarinfo",JSON.stringify(info));
         
+        //console.log(results);
 
         //create markers and info window
-        console.log(results);
         for(i=0;i<results.length;i++){ 
-          var marker = new google.maps.Marker({ position: results[i].geometry.location, map: map,}); //label: results[i].icon
-
-          marker.setOptions()
-          console.log(marker);
+          markers[i] = new google.maps.Marker({ position: results[i].geometry.location, map: map}); //label: results[i].icon
 
           //borderColor: '#386994',
-          var content=  "<b>" + results[i].name + "</b><br>" + 
-                        "Adress: " + results[i].formatted_address + "<br>" +
-                        "Rating: " + results[i].rating + "<br>" 
+          var address = results[i].formatted_address.split(',')[0];
+
+          var content=  "<h1> " + results[i].name + "</h1> <br>" + 
+                        "Address: " + address + "<br>" +
+                        "Rating: " + results[i].rating + "<br>"
+
                         //"Price: " + results[i].price_level + "<br>" 
                         //"More Info: "
-          marker['infowindow'] = new google.maps.InfoWindow({content:content}); //give marker infowindow key value
-          marker.addListener("click",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is pressed 
+
+          markers[i]['infowindow'] = new google.maps.InfoWindow({content:content}); //give marker infowindow key value
+          markers[i]['moreinfolink'] = '"https://www.google.com/maps/place/?q=place_id:'+ results[i].place_id + '"';
+          markers[i].addListener("click",function(){ 
+            console.log(this.moreinfolink);
+            console.log(this);
+            //var link = this.moreinfolink;
+            window.open(this.moreinfolink,"_blank"); 
+            //window.open("https://www.google.com/maps/place/?q=place_id:ChIJWwJ_siBawokRyBJ85UV6gQs","_blank"); 
+
+          }); // make infowindow open wheqn marker is pressed 
+          markers[i].addListener("mouseover",function(){ this.infowindow.open(map,this)}); // make infowindow open when marker is hovered
+          markers[i].addListener("mouseout",function(){ this.infowindow.close();}); // make infowindow open when marker is pressed 
 
         }
 })})} 
-
-
-  
 
 addEventListener('submit', (event) => {
   event.preventDefault();
   getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstylers);
 })
-
 
 var mapstylers = [
   {
