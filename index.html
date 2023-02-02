@@ -98,7 +98,7 @@
                 </select>
             </div>
             <div class="flex flex-col py-2.5">
-                <button type="submit" 
+                <button type="submit" id="submit-map"
                 class="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" 
                 style="background-color: #214457" onmouseover="this.style.backgroundColor='#386994'" onmouseout="this.style.backgroundColor='#214457'">
                     Submit
@@ -107,10 +107,42 @@
        </form>
     </div>
 
+
     <div class="flex p-5 mx-20 w-auto" style="height:700px;">
+
         <div id="map" class="flex w-full h-full"></div>
+
     </div>
     
+
+    <!-- <section class="bg-white dark:bg-gray-900">
+      <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
+          <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
+          <form action="https://formsubmit.co/recoveryradar@gmail.com" method="POST" class="space-y-8">
+              <div>
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                  <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+              </div>
+              <div>
+                  <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                  <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+              </div>
+              <div class="sm:col-span-2">
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                  <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+              </div>
+              <button type="submit" id="submit-contact" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              style="background-color: #214457" onmouseover="this.style.backgroundColor='#386994'" onmouseout="this.style.backgroundColor='#214457'">
+              Send message
+            </button>
+          </form>
+      </div>
+    </section>   -->
+
+
+
+
     <section id="About" class="py-16">
         <div class="container mx-auto py-10 px-10 flex bg-gray-200 w-auto flex-wrap justify-evenly">
             <div class="lg:w-1/2 flex flex-col text-center justify-center">
@@ -132,62 +164,56 @@
         </div>
     </section>
 
-    <footer class="p-4 shadow sm:flex sm:items-center sm:justify-between md:p-6" style="background-color: #214457">
-        <span class="text-sm text-white sm:text-center">
-            © 2023 <a href="https://flowbite.com/" class="hover:underline">Recovery-Radar™</a>. All Rights Reserved.
-        </span>
-        <ul class="flex flex-wrap items-center mt-3 text-sm text-white sm:mt-0">
-            <li>
-                <a href="#About" class="mr-4 hover:underline md:mr-6 ">About</a>
-            </li>
-            <li>
-                <a href="#Contact" class="hover:underline">Contact</a>
-            </li>
-        </ul>
-    </footer>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_i3KKcb_DYxqC3qOrZuIh2DLOKO4Pkc&libraries=places&callback=initMap"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-
-	<script src="./assets/js/index.js"></script>
-
-  </body>
-   <!-- <footer>
-     <section class="bg-gray-700 dark:bg-gray-900" id="Contact">
-       <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-white dark:text-white">Contact Us</h2>
-          <p class="mb-8 lg:mb-16 font-light text-center text-white dark:text-gray-900 sm:text-xl">Got a technical issue? Have an idea of how we can better assist you? Need details about a particular feature? Let us know.</p>
-          <form action="https://formsubmit.co/RecoveryRadar@gmail.com" method="post" class="space-y-8">
-              <div>
-                  <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Your email</label>
-                  <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Recovery-Radar@github.com" required>
-              </div>
-              <div>
-                  <label for="subject" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Subject</label>
-                  <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
-              </div>
-              <div class="sm:col-span-2">
-                  <label for="message" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">Your message</label>
-                  <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-              </div>
-              <button type="Submit" class="py-3 px-5 text-sm font-medium text-center text-gray-900 rounded-lg bg-white sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
-          </form>
-      </div>
-    </section> -->
-  <!-- <footer>
-    <section id="Contact" class="py-16">
-      <div class="container mx-auto py-16 px-16 flex bg-gray-700 w-full">
-          <div class="w-1/2 flex flex-col text-center items-center justify-center">
-              <h2 class="text-4xl font-bold mb-5 text-white text-center hover:text-center">
-                  Contact information 
-              </h2>
-              <p class="text-white text-align: center;">
-                * EMAIL: recoveryradar@gmail.com
  
-              </p>
-          </div>
-        </section> -->
+  <footer>
+    <section class="bg-gray-700 dark:bg-gray-900" id="Contact">
+      <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-white dark:text-white">Contact Us</h2>
+         <p class="mb-8 lg:mb-16 font-light text-center text-white dark:text-gray-900 sm:text-xl">Got a technical issue? Have an idea of how we can better assist you? Need details about a particular feature? Let us know.</p>
+         <form action="https://formsubmit.co/RecoveryRadar@gmail.com" id="contactForm" method="post" class="space-y-8">
+             <div>
+                 <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Your email</label>
+                 <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Recovery-Radar@github.com" required/>
+             </div>
+             <div>
+                 <label for="subject" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Subject</label>
+                 <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required/>
+             </div>
+             <div class="sm:col-span-2">
+                 <label for="message" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">Your message</label>
+                 <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+             </div>
+             <button type="Submit" class="py-3 px-5 text-sm font-medium text-center text-gray-900 rounded-lg bg-white sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+         </form>
+     </div>
+   </section>
+ <footer>
+
+  <footer class="p-4 shadow sm:flex sm:items-center sm:justify-between md:p-6" style="background-color: #214457">
+    <span class="text-sm text-white sm:text-center">
+        © 2023 <a href="https://flowbite.com/" class="hover:underline">Recovery-Radar™</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm text-white sm:mt-0">
+        <li>
+            <a href="#About" class="mr-4 hover:underline md:mr-6 ">About</a>
+        </li>
+        <li>
+            <a href="#Contact" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+</footer>
+
+
+
+ </body>
           
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF_i3KKcb_DYxqC3qOrZuIh2DLOKO4Pkc&libraries=places&callback=initMap"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+
+<script src="./assets/js/index.js"></script>
           
+
+
 </html>
