@@ -76,16 +76,11 @@ function handleEmailForm(e){
 }
   
 
-//document.getElementById("submit-map").
+page.addEventListener("submit", handleEmailForm)
 addEventListener('submit', (event) => {
   event.preventDefault();
   getNearbyDoctorsInCity(cityElement.value,occupationElement.value,'map',mapstylers);
 })
-
-// document.getElementById("submit-contact").addEventListener('submit', (event) => {
-//     event.preventDefault();
-  
-//  })
 
 
 
