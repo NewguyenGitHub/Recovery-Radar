@@ -67,8 +67,13 @@ function getNearbyDoctorsInCity(city,occupation,element,mapstylers){
 
 })})} 
 
-
-
+var page= document.querySelector("#contactForm");
+console.log(page)
+function handleEmailForm(e){
+  e.preventDefault()
+  var message= document.getElementById("message").value
+  console.log(message)
+}
   
 
 //document.getElementById("submit-map").
